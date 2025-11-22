@@ -9,30 +9,6 @@ import Card from '@/components/shared/Card';
 import Button from '@/components/shared/Button';
 import { ContactFormData } from '@/lib/types';
 
-const countries = [
-  'Amerika Birleşik Devletleri',
-  'İngiltere',
-  'Kanada',
-  'Almanya',
-  'Avustralya',
-  'Hollanda',
-  'Fransa',
-  'İsviçre',
-  'İtalya',
-  'İspanya',
-  'Diğer',
-];
-
-const educationLevels = [
-  'Lise Öğrencisi',
-  'Lisans',
-  'Yüksek Lisans',
-  'Doktora',
-  'Dil Eğitimi',
-  'Sertifika Programı',
-  'Diğer',
-];
-
 export default function IletisimPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -46,12 +22,12 @@ export default function IletisimPage() {
     formState: { errors },
     reset,
     watch,
-  } = useForm<ContactFormData & { educationLevel: string }>();
+  } = useForm<ContactFormData>();
 
   // Watch message field for character count
   const messageValue = watch('message', '');
 
-  const onSubmit = async (data: ContactFormData & { educationLevel: string }) => {
+  const onSubmit = async (data: ContactFormData) => {
     setIsSubmitting(true);
     setSubmitError(false);
 
@@ -74,8 +50,6 @@ export default function IletisimPage() {
           from_name: data.name,
           from_email: data.email,
           phone: data.phone,
-          education_level: data.educationLevel,
-          country: data.country,
           message: data.message,
         },
         publicKey
@@ -287,81 +261,28 @@ export default function IletisimPage() {
                 </div>
               </div>
 
-              {/* Phone & Education Level Row */}
-              <div className="grid sm:grid-cols-2 gap-5">
-                {/* Phone */}
-                <div>
-                  <label htmlFor="phone" className="label label-required">
-                    Telefon
-                  </label>
-                  <input
-                    id="phone"
-                    type="tel"
-                    {...register('phone', {
-                      required: 'Telefon numarası gereklidir',
-                      pattern: {
-                        value: /^[0-9]{10,11}$/,
-                        message: 'Geçerli bir telefon numarası girin'
-                      }
-                    })}
-                    className={`input ${errors.phone ? 'input-error' : ''}`}
-                    placeholder="05XX XXX XX XX"
-                  />
-                  {errors.phone && (
-                    <p className="mt-1.5 text-sm text-red-600 flex items-center gap-1">
-                      <AlertCircle className="h-3.5 w-3.5" />
-                      {errors.phone.message}
-                    </p>
-                  )}
-                </div>
-
-                {/* Education Level */}
-                <div>
-                  <label htmlFor="educationLevel" className="label label-required">
-                    Eğitim Seviyesi
-                  </label>
-                  <select
-                    id="educationLevel"
-                    {...register('educationLevel', { required: 'Eğitim seviyesi seçimi gereklidir' })}
-                    className={`input ${errors.educationLevel ? 'input-error' : ''}`}
-                  >
-                    <option value="">Seçin</option>
-                    {educationLevels.map((level) => (
-                      <option key={level} value={level}>
-                        {level}
-                      </option>
-                    ))}
-                  </select>
-                  {errors.educationLevel && (
-                    <p className="mt-1.5 text-sm text-red-600 flex items-center gap-1">
-                      <AlertCircle className="h-3.5 w-3.5" />
-                      {errors.educationLevel.message}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              {/* Country */}
+              {/* Phone */}
               <div>
-                <label htmlFor="country" className="label label-required">
-                  İlgilendiğiniz Ülke
+                <label htmlFor="phone" className="label label-required">
+                  Telefon
                 </label>
-                <select
-                  id="country"
-                  {...register('country', { required: 'Ülke seçimi gereklidir' })}
-                  className={`input ${errors.country ? 'input-error' : ''}`}
-                >
-                  <option value="">Ülke seçin</option>
-                  {countries.map((country) => (
-                    <option key={country} value={country}>
-                      {country}
-                    </option>
-                  ))}
-                </select>
-                {errors.country && (
+                <input
+                  id="phone"
+                  type="tel"
+                  {...register('phone', {
+                    required: 'Telefon numarası gereklidir',
+                    pattern: {
+                      value: /^[0-9]{10,11}$/,
+                      message: 'Geçerli bir telefon numarası girin'
+                    }
+                  })}
+                  className={`input ${errors.phone ? 'input-error' : ''}`}
+                  placeholder="05XX XXX XX XX"
+                />
+                {errors.phone && (
                   <p className="mt-1.5 text-sm text-red-600 flex items-center gap-1">
                     <AlertCircle className="h-3.5 w-3.5" />
-                    {errors.country.message}
+                    {errors.phone.message}
                   </p>
                 )}
               </div>
