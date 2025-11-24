@@ -118,20 +118,6 @@ export default function ParentsSection() {
               </div>
             </motion.div>
           </div>
-
-          {/* Quote */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-8 p-6 bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl border-l-4 border-primary-600"
-          >
-            <p className="text-gray-700 italic">
-              "Çocuğumuzun sadece iyi bir üniversiteye gitmesi değil, hayata hazır, özgüvenli ve mutlu bir birey olması bizim için en önemlisi."
-            </p>
-            <p className="text-sm text-gray-600 mt-2">- Bir Velimizin Görüşü</p>
-          </motion.div>
         </motion.div>
       </div>
     </Section>
