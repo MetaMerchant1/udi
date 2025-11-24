@@ -35,7 +35,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-[#230c46] text-gray-300">
       <Container>
         {/* Main Footer */}
         <div className="py-12 lg:py-16">
@@ -48,7 +48,7 @@ export default function Footer() {
                   alt="UDI - United Development and Innovation"
                   width={140}
                   height={50}
-                  className="h-12 w-auto brightness-0 invert"
+                  className="h-12 w-auto"
                 />
               </div>
               <p className="text-sm text-gray-400 italic mb-4">

@@ -59,8 +59,8 @@ export default function Navigation() {
               className={cn(
                 'text-sm font-semibold leading-6 transition-colors inline-flex items-center gap-1',
                 pathname === item.href
-                  ? 'text-primary-600'
-                  : 'text-gray-900 hover:text-primary-600'
+                  ? 'text-white'
+                  : 'text-gray-100 hover:text-white'
               )}
             >
               {item.name}
@@ -104,7 +104,7 @@ export default function Navigation() {
       {/* Mobile menu button */}
       <button
         type="button"
-        className="lg:hidden -m-3 inline-flex items-center justify-center rounded-md p-3 text-gray-700"
+        className="lg:hidden -m-3 inline-flex items-center justify-center rounded-md p-3 text-white"
         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
       >
         <span className="sr-only">Menüyü aç</span>

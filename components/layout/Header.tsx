@@ -24,7 +24,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
+        isScrolled ? 'bg-[#230c46] shadow-md' : 'bg-[#230c46]/95 backdrop-blur-sm'
       }`}
     >
       {/* Main Header */}
@@ -35,9 +35,9 @@ export default function Header() {
             <Image
               src="/images/udi-logo.svg"
               alt="UDI - United Development and Innovation"
-              width={120}
-              height={40}
-              className="h-10 w-auto"
+              width={180}
+              height={60}
+              className="h-16 w-auto"
               priority
             />
           </Link>
@@ -50,7 +50,7 @@ export default function Header() {
             <Button
               size="sm"
               onClick={openModal}
-              className="!bg-primary-600 !text-white hover:!bg-primary-700 !border-primary-600 hover:!border-primary-700"
+              className="!bg-white !text-[#230c46] hover:!bg-gray-100 !border-white hover:!border-gray-100 font-semibold"
             >
               İletişim
             </Button>
