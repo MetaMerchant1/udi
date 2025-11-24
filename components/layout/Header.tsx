@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Container from '@/components/shared/Container';
 import Navigation from './Navigation';
 import Button from '@/components/shared/Button';
@@ -30,10 +31,15 @@ export default function Header() {
       <Container>
         <div className="flex items-center justify-between py-4 relative">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <div className="text-2xl font-bold text-primary-600">
-              EğitimDanışmanlık
-            </div>
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src="/images/udi-logo.svg"
+              alt="UDI - United Development and Innovation"
+              width={120}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
           </Link>
 
           {/* Navigation */}

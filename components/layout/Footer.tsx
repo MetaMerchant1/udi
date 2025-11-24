@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 import Container from '@/components/shared/Container';
 
@@ -41,11 +42,20 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div>
-              <div className="text-2xl font-bold text-white mb-4">
-                EğitimDanışmanlık
+              <div className="mb-4">
+                <Image
+                  src="/images/udi-logo.svg"
+                  alt="UDI - United Development and Innovation"
+                  width={140}
+                  height={50}
+                  className="h-12 w-auto brightness-0 invert"
+                />
               </div>
+              <p className="text-sm text-gray-400 italic mb-4">
+                Driven by Innovation United by Purpose
+              </p>
               <p className="text-gray-400 mb-6">
-                Yurtdışı eğitim hayallerinizi gerçeğe dönüştürmek için 20+ yıllık deneyimimizle
+                Yurtdışı eğitim hayallerinizi gerçeğe dönüştürmek için 25+ yıllık deneyimimizle
                 yanınızdayız.
               </p>
 
@@ -119,7 +129,7 @@ export default function Footer() {
         <div className="border-t border-gray-800 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-400">
-              © {new Date().getFullYear()} EğitimDanışmanlık. Tüm hakları saklıdır.
+              © {new Date().getFullYear()} UDI - United Development and Innovation. Tüm hakları saklıdır.
             </p>
 
             {/* Social Links */}
