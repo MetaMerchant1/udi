@@ -90,7 +90,7 @@ export default function YurtdisiUniversiteDanismanligiPage() {
             </p>
             <Link href="/iletisim">
               <Button size="lg">
-                Ücretsiz Danışmanlık Alın
+                İletişim
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>

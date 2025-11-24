@@ -172,7 +172,7 @@ export default async function BlogPostPage({ params }: Props) {
             </p>
             <Link href="/iletisim">
               <Button size="lg" className="bg-white text-primary-600 hover:bg-gray-100">
-                Ücretsiz Danışmanlık Alın
+                İletişim
               </Button>
             </Link>
           </div>

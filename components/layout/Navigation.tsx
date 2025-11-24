@@ -173,7 +173,7 @@ export default function Navigation() {
                 className="block w-full text-center px-4 py-3 bg-primary-600 text-white rounded-lg font-semibold hover:bg-primary-700 transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Ücretsiz Danışmanlık
+                İletişim
               </Link>
             </div>
           </div>
