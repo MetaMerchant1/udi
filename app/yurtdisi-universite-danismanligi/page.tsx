@@ -48,15 +48,6 @@ const steps = [
   },
 ];
 
-const countries = [
-  { name: 'Amerika Birleşik Devletleri', universities: '50+', flag: '🇺🇸' },
-  { name: 'İngiltere', universities: '40+', flag: '🇬🇧' },
-  { name: 'Kanada', universities: '30+', flag: '🇨🇦' },
-  { name: 'Almanya', universities: '25+', flag: '🇩🇪' },
-  { name: 'Avustralya', universities: '20+', flag: '🇦🇺' },
-  { name: 'Hollanda', universities: '15+', flag: '🇳🇱' },
-];
-
 export default function YurtdisiUniversiteDanismanligiPage() {
   return (
     <div className="pt-20 sm:pt-24 md:pt-32">
@@ -188,32 +179,6 @@ export default function YurtdisiUniversiteDanismanligiPage() {
               dahil olması, öğrencinin başarısı için önemli bir faktördür.
             </p>
           </div>
-        </div>
-      </Section>
-
-      {/* Countries */}
-      <Section className="bg-gray-50">
-        <div className="text-center mb-16">
-          <h2 className="heading-2 text-gray-900 mb-4">
-            Partner Üniversitelerimiz
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Dünyanın dört bir yanındaki prestijli üniversitelerle işbirliğimiz
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {countries.map((country, index) => (
-            <Card key={index} hover className="text-center">
-              <div className="text-5xl mb-4">{country.flag}</div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                {country.name}
-              </h3>
-              <p className="text-primary-600 font-semibold">
-                {country.universities} Partner Üniversite
-              </p>
-            </Card>
-          ))}
         </div>
       </Section>
 
