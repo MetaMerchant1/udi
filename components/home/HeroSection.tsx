@@ -73,7 +73,7 @@ export default function HeroSection() {
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               <Button size="lg" onClick={openModal} className="w-full sm:w-auto">
-                Ücretsiz Danışmanlık Alın
+                İletişim
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
               <Link href="/hizmetler">

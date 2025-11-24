@@ -34,7 +34,7 @@ export default function CTASection() {
           <Link href="/iletisim">
             <Button size="lg">
               <Phone className="mr-2 h-5 w-5" />
-              Ücretsiz Danışmanlık Alın
+              İletişim
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </Link>
