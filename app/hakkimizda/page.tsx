@@ -1,13 +1,15 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Users, Target, Award, Heart } from 'lucide-react';
 import Section from '@/components/shared/Section';
 import Card from '@/components/shared/Card';
 
 export const metadata: Metadata = {
   title: 'Hakkımızda',
-  description: '25+ yıllık deneyim ile kapsamlı eğitim danışmanlığı hizmeti. Boğaziçi Üniversitesi mezunu uzman kadro ile öğrencilerinizin geleceğini şekillendiriyoruz.',
+  description: 'United Development and Innovation (UDI) - 25+ yıllık deneyim ile kapsamlı eğitim danışmanlığı hizmeti. Boğaziçi Üniversitesi mezunu uzman kadro ile öğrencilerinizin geleceğini şekillendiriyoruz.',
+  keywords: ['UDI', 'United Development and Innovation', 'eğitim danışmanlığı', 'yurtdışı eğitim', 'Boğaziçi Üniversitesi', 'kariyer planlaması'],
   openGraph: {
-    title: 'Hakkımızda | EğitimDanışmanlık',
+    title: 'Hakkımızda | UDI - United Development and Innovation',
     description: '25+ yıllık deneyim ile kapsamlı eğitim danışmanlığı hizmeti.',
   },
 };
@@ -31,13 +33,6 @@ const values = [
     description: 'Dürüstlük, profesyonellik, öğrenci odaklılık ve mükemmeliyetçilik temel değerlerimizdir.',
     color: 'bg-purple-100 text-purple-600',
   },
-];
-
-const stats = [
-  { number: '25+', label: 'Yıllık Deneyim' },
-  { number: '1000+', label: 'Başarılı Öğrenci' },
-  { number: '50+', label: 'Partner Üniversite' },
-  { number: '%95', label: 'Başarı Oranı' },
 ];
 
 const team = [
@@ -74,10 +69,21 @@ export default function HakkimizdaPage() {
 
         {/* Content */}
         <div className="relative z-10 text-center max-w-3xl mx-auto">
-          <h1 className="heading-1 mb-6">
-            Hakkımızda
+          <div className="mb-6 sm:mb-8 flex justify-center">
+            <Image
+              src="/images/udi-logo.svg"
+              alt="UDI - United Development and Innovation"
+              width={200}
+              height={200}
+              className="w-32 h-32 sm:w-44 sm:h-44 md:w-52 md:h-52 drop-shadow-2xl"
+              priority
+              sizes="(max-width: 640px) 128px, (max-width: 768px) 176px, 208px"
+            />
+          </div>
+          <h1 className="heading-1 mb-4 sm:mb-6 px-4">
+            United Development and Innovation
           </h1>
-          <p className="text-xl text-primary-100">
+          <p className="text-base sm:text-lg md:text-xl text-primary-100 px-4">
             Öğrenci Odaklı, Şeffaf ve Sürdürülebilir Başarı Yaklaşımı
           </p>
         </div>
@@ -142,22 +148,6 @@ export default function HakkimizdaPage() {
               </Card>
             );
           })}
-        </div>
-      </Section>
-
-      {/* Stats */}
-      <Section className="bg-gradient-to-br from-primary-600 via-primary-700 to-indigo-700 text-white">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-5xl font-bold mb-2">
-                {stat.number}
-              </div>
-              <div className="text-primary-200">
-                {stat.label}
-              </div>
-            </div>
-          ))}
         </div>
       </Section>
 

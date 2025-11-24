@@ -35,21 +35,27 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#230c46] text-gray-300">
+    <footer className="bg-[#220b47] text-gray-300">
       <Container>
         {/* Main Footer */}
         <div className="py-12 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div>
-              <div className="mb-4">
+              <div className="flex items-center gap-3 mb-4">
                 <Image
                   src="/images/udi-logo.svg"
-                  alt="UDI - United Development and Innovation"
-                  width={140}
-                  height={50}
-                  className="h-12 w-auto"
+                  alt="UDI"
+                  width={60}
+                  height={60}
+                  className="h-14 w-auto"
+                  sizes="60px"
                 />
+                <div>
+                  <h3 className="font-handwriting text-2xl text-white leading-tight">
+                    United Development<br/>and Innovation
+                  </h3>
+                </div>
               </div>
               <p className="text-sm text-gray-400 italic mb-4">
                 Driven by Innovation United by Purpose
@@ -80,7 +86,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="hover:text-white transition-colors text-sm"
+                      className="hover:text-white transition-colors text-sm inline-block py-1"
                     >
                       {link.name}
                     </Link>
@@ -97,7 +103,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="hover:text-white transition-colors text-sm"
+                      className="hover:text-white transition-colors text-sm inline-block py-1"
                     >
                       {link.name}
                     </Link>
@@ -114,7 +120,7 @@ export default function Footer() {
                   <li key={link.name}>
                     <Link
                       href={link.href}
-                      className="hover:text-white transition-colors"
+                      className="hover:text-white transition-colors inline-block py-1"
                     >
                       {link.name}
                     </Link>
@@ -133,14 +139,14 @@ export default function Footer() {
             </p>
 
             {/* Social Links */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
                 return (
                   <a
                     key={social.name}
                     href={social.href}
-                    className="text-gray-400 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-white transition-colors p-2"
                     aria-label={social.name}
                     target="_blank"
                     rel="noopener noreferrer"

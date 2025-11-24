@@ -1,0 +1,75 @@
+<svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .letter-color {
+      animation: hue-rotate-animation 10s linear infinite;
+    }
+
+    @keyframes hue-rotate-animation {
+      0% {
+        filter: hue-rotate(0deg) brightness(1.1);
+      }
+      100% {
+        filter: hue-rotate(360deg) brightness(1.1);
+      }
+    }
+  </style>
+
+  <defs>
+    <!-- Gradient definitions for colorful fills -->
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4ECDC4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#45B7D1;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F7B731;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#5F27CD;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00D2D3;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FD79A8;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FDCB6E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6C5CE7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="250" cy="250" r="230" fill="none" stroke="#220b47" stroke-width="8"/>
+
+  <!-- Letter U -->
+  <g class="letter-group">
+    <!-- U outer stroke -->
+    <path d="M 80 150 L 80 280 Q 80 340 130 340 Q 180 340 180 280 L 180 150"
+          fill="none" stroke="#220b47" stroke-width="12"/>
+    <!-- U inner colorful fill -->
+    <path class="letter-color" d="M 95 150 L 95 280 Q 95 325 130 325 Q 165 325 165 280 L 165 150 Z"
+          fill="url(#gradient1)"/>
+  </g>
+
+  <!-- Letter D -->
+  <g class="letter-group">
+    <!-- D outer stroke -->
+    <path d="M 220 150 L 220 340 L 280 340 Q 360 340 360 245 Q 360 150 280 150 Z"
+          fill="none" stroke="#220b47" stroke-width="12"/>
+    <!-- D inner colorful fill -->
+    <path class="letter-color" d="M 245 165 L 245 325 L 280 325 Q 340 325 340 245 Q 340 165 280 165 Z"
+          fill="url(#gradient2)"/>
+  </g>
+
+  <!-- Letter I -->
+  <g class="letter-group">
+    <!-- I outer stroke -->
+    <rect x="385" y="150" width="35" height="190"
+          fill="none" stroke="#220b47" stroke-width="12"/>
+    <!-- I inner colorful fill -->
+    <rect class="letter-color" x="395" y="160" width="15" height="170"
+          fill="url(#gradient3)"/>
+  </g>
+
+  <!-- Decorative dots -->
+  <circle cx="130" cy="370" r="12" fill="#220b47"/>
+  <circle cx="250" cy="370" r="12" fill="#220b47"/>
+  <circle cx="402" cy="370" r="12" fill="#220b47"/>
+</svg>
