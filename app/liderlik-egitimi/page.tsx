@@ -116,26 +116,134 @@ export default function LiderlikEgitimiPage() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="heading-2 text-gray-900 mb-6">
-              Neden Liderlik Eğitimi?
+              Program İçeriği
             </h2>
-            <p className="text-lg text-gray-600 mb-6">
-              21. yüzyılda başarılı olmak için teknik bilgi yeterli değil. Liderlik becerileri, her alanda öne çıkmanın anahtarıdır.
+            <p className="text-lg text-gray-600 mb-8">
+              Kapsamlı ve uygulamalı liderlik geliştirme programımız 6 ana modülden oluşmaktadır.
             </p>
-            <ul className="space-y-4">
-              {[
-                'Özgüven ve öz farkındalık geliştirme',
-                'Etkili iletişim kurma becerisi',
-                'Problem çözme ve karar alma yeteneği',
-                'Takım çalışması ve işbirliği',
-                'Değişimi yönetme kapasitesi',
-                'Vizyoner düşünme becerisi',
-              ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-yellow-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-6">
+              {/* Module 1 */}
+              <div className="bg-yellow-50 border-l-4 border-yellow-600 rounded-lg p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Liderlik ve Öz Farkındalık <span className="text-sm font-normal text-gray-600">(1,5–2 saat)</span>
+                </h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-yellow-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Liderlik nedir / ne değildir?</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-yellow-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Kişisel güçlü yönler ve gelişim alanları</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-yellow-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Değerler, motivasyon, hedef belirleme</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Module 2 */}
+              <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Etkili İletişim Becerileri <span className="text-sm font-normal text-gray-600">(2 saat)</span>
+                </h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Aktif dinleme</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Beden dili, empati</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">İkna ve düşünce ifade etme</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Module 3 */}
+              <div className="bg-green-50 border-l-4 border-green-600 rounded-lg p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Takım Çalışması ve İşbirliği <span className="text-sm font-normal text-gray-600">(1,5–2 saat)</span>
+                </h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Rol paylaşımı</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Çatışma yönetimi</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Grup karar alma</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Module 4 */}
+              <div className="bg-purple-50 border-l-4 border-purple-600 rounded-lg p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Problem Çözme ve Yaratıcılık <span className="text-sm font-normal text-gray-600">(1,5 saat)</span>
+                </h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Analitik düşünme</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Beyin fırtınası teknikleri</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-purple-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Gerçek hayat senaryoları</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Module 5 */}
+              <div className="bg-rose-50 border-l-4 border-rose-600 rounded-lg p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Sorumluluk, Etik ve Dijital Vatandaşlık <span className="text-sm font-normal text-gray-600">(1,5 saat)</span>
+                </h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-rose-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Güven, adalet, dürüstlük</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-rose-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Sosyal medya davranışları</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-rose-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Topluma katkı</span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Module 6 */}
+              <div className="bg-amber-50 border-l-4 border-amber-600 rounded-lg p-5">
+                <h3 className="text-lg font-bold text-gray-900 mb-3">
+                  Proje Tasarımı ve Uygulama <span className="text-sm font-normal text-gray-600">(2 saat)</span>
+                </h3>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Küçük sosyal sorumluluk projesi planlama</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-amber-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-gray-700 text-sm">Sunum ve geri bildirim</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
           <Card className="bg-gradient-to-br from-yellow-50 to-amber-50 border-yellow-200 p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Program Detayları</h3>
