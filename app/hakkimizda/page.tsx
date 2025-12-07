@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { Users, Target, Award, Heart } from 'lucide-react';
+import { Target, Award, Heart } from 'lucide-react';
 import Section from '@/components/shared/Section';
 import Card from '@/components/shared/Card';
 
@@ -32,24 +32,6 @@ const values = [
     title: 'Değerlerimiz',
     description: 'Dürüstlük, profesyonellik, öğrenci odaklılık ve mükemmeliyetçilik temel değerlerimizdir.',
     color: 'bg-purple-100 text-purple-600',
-  },
-];
-
-const team = [
-  {
-    name: 'Kurucu',
-    role: 'Genel Müdür & Eğitim Danışmanı',
-    description: 'Boğaziçi Üniversitesi mezunu, İngiltere\'de lisansüstü eğitim, 25+ yıl eğitim deneyimi',
-  },
-  {
-    name: 'Akademik Danışmanlar',
-    role: 'Kariyer & Üniversite Danışmanlığı',
-    description: 'Yurtdışı üniversite mezunu, başvuru süreçleri ve kariyer planlama uzmanları',
-  },
-  {
-    name: 'Eğitim Koçları',
-    role: 'Kişisel Gelişim & Liderlik',
-    description: 'Sertifikalı koçlar, kişilik envanterleri ve liderlik eğitimi uzmanları',
   },
 ];
 
@@ -97,27 +79,16 @@ export default function HakkimizdaPage() {
           </h2>
           <div className="prose prose-lg max-w-none text-gray-700 space-y-6">
             <p>
-              Boğaziçi Üniversitesi mezunu olarak 25+ yıldır eğitim alanında çalışıyorum.
-              İngiltere'de lisansüstü eğitim aldıktan sonra, Türkiye'deki farklı eğitim kurumlarında
-              öğretmen, koordinatör ve yönetici olarak görev aldım.
+              Yurt içi ve yurt dışı eğitim danışmanlığı alanında uzun yıllara dayanan birikimi, profesyonel yaklaşımı ve güçlü akademik geçmişi bir araya getiren bir danışmanlık ekibiyiz. Ekibimizin lideri; Boğaziçi Üniversitesi Mütercim-Tercümanlık mezunu, Özel Saint Benoît Fransız Lisesi kökenli ve 25 yılı aşkın süredir eğitim sektöründe aktif olarak görev yapan deneyimli bir uzmandır.
             </p>
             <p>
-              Kurucusu olduğum EğitimDanışmanlık ile öğrencilerin sadece akademik değil, aynı zamanda
-              sosyal ve duygusal gelişimlerini de destekleyen kapsamlı bir eğitim danışmanlığı hizmeti
-              sunuyoruz. Yurtdışı üniversite başvuru süreçlerinden kariyer planlamaya, kişilik
-              envanterlerinden liderlik eğitimine kadar geniş bir yelpazede hizmet veriyoruz.
+              Kariyeri boyunca yurt dışı eğitim danışmanı, İngilizce öğretmeni, müdür yardımcısı, okul müdürü ve eğitim koordinatörü gibi birçok kritik rolde görev almış danışmanımız; hem ulusal hem uluslararası eğitim dinamiklerine hâkimiyetiyle öğrencilerimize ve ailelerimize en doğru yönlendirmeyi sunmaktadır.
             </p>
             <p>
-              25+ yıllık deneyimimiz, dünya çapındaki prestijli üniversitelerle kurduğumuz güçlü
-              bağlar ve her öğrenciye kişiye özel yaklaşımımız ile sektörün öncü firmasıyız.
-              Öğrencilerimizin sadece bir diploma değil, vizyon sahibi bir gelecek kazanmalarını
-              hedefliyoruz.
+              Yıllardır sektörün içinde aktif olarak çalışan danışman ekibimiz; öğrencilerin akademik hedeflerine, kariyer planlarına ve kişisel ihtiyaçlarına uygun, güvenilir ve birebir ilgiye dayalı bir danışmanlık hizmeti sunmayı ilke edinmiştir. Amacımız; yurt içi ve yurt dışında doğru okulu, doğru programı ve doğru yolu birlikte belirleyerek sizin için en ideal eğitim deneyimini oluşturmaktır.
             </p>
             <p>
-              Harvard, Oxford, MIT, Cambridge, Stanford gibi dünyanın en iyi üniversitelerine
-              öğrenci yerleştirmenin gururunu yaşıyoruz. Her öğrenci için özel olarak hazırlanan
-              stratejik planlarımız, düzenli takip sistemimiz ve ailelerle sürekli iletişimimiz
-              ile başarı oranımız %95'in üzerindedir.
+              Biz, sadece bir danışmanlık şirketi değil; eğitime gönül vermiş, öğrencinin başarısını kendi başarısı gören bir ekibiz.
             </p>
           </div>
         </div>
@@ -127,7 +98,7 @@ export default function HakkimizdaPage() {
       <Section className="bg-gray-50">
         <div className="text-center mb-16">
           <h2 className="heading-2 text-gray-900 mb-4">
-            Değerlerimiz
+            Misyon, Vizyon ve Değerlerimiz
           </h2>
         </div>
 
@@ -148,37 +119,6 @@ export default function HakkimizdaPage() {
               </Card>
             );
           })}
-        </div>
-      </Section>
-
-      {/* Team */}
-      <Section className="bg-white">
-        <div className="text-center mb-16">
-          <h2 className="heading-2 text-gray-900 mb-4">
-            Ekibimiz
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Deneyimli ve uzman kadromuz
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {team.map((member, index) => (
-            <Card key={index} className="text-center">
-              <div className="w-24 h-24 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Users className="h-12 w-12 text-primary-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
-                {member.name}
-              </h3>
-              <div className="text-primary-600 font-medium mb-2">
-                {member.role}
-              </div>
-              <p className="text-sm text-gray-600">
-                {member.description}
-              </p>
-            </Card>
-          ))}
         </div>
       </Section>
     </div>

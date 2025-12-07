@@ -249,16 +249,8 @@ export default function LiderlikEgitimiPage() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Program Detayları</h3>
             <div className="space-y-4">
               <div>
-                <div className="text-sm text-gray-600 mb-1">Süre</div>
-                <div className="text-lg font-semibold text-gray-900">12 Hafta</div>
-              </div>
-              <div>
                 <div className="text-sm text-gray-600 mb-1">Format</div>
                 <div className="text-lg font-semibold text-gray-900">Karma (Online + Yüz yüze)</div>
-              </div>
-              <div>
-                <div className="text-sm text-gray-600 mb-1">Sertifika</div>
-                <div className="text-lg font-semibold text-gray-900">Uluslararası Geçerli</div>
               </div>
               <div>
                 <div className="text-sm text-gray-600 mb-1">Kişi Sayısı</div>

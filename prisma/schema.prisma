@@ -1,0 +1,125 @@
+// Blog Yönetim Sistemi - Prisma Schema (SQLite)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ==================== KULLANICI ====================
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(EDITOR)
+  image     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  posts Post[]
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+// ==================== BLOG YAZISI ====================
+model Post {
+  id               String     @id @default(cuid())
+  title            String
+  slug             String     @unique
+  excerpt          String
+  content          String     // Tiptap JSON formati (String olarak)
+  contentHtml      String?
+  featuredImage    String?
+  featuredImageAlt String?
+  status           PostStatus @default(DRAFT)
+  publishedAt      DateTime?
+  metaTitle        String?
+  metaDescription  String?
+  readingTime      Int?
+  viewCount        Int        @default(0)
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id])
+
+  categories CategoriesOnPosts[]
+  tags       TagsOnPosts[]
+
+  @@index([slug])
+  @@index([status, publishedAt])
+  @@index([authorId])
+}
+
+enum PostStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+// ==================== KATEGORİ ====================
+model Category {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  slug        String   @unique
+  description String?
+  color       String?
+  createdAt   DateTime @default(now())
+
+  posts CategoriesOnPosts[]
+
+  @@index([slug])
+}
+
+// Many-to-Many: Post <-> Category
+model CategoriesOnPosts {
+  post       Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId     String
+  category   Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  categoryId String
+
+  @@id([postId, categoryId])
+}
+
+// ==================== ETİKET ====================
+model Tag {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  slug      String   @unique
+  createdAt DateTime @default(now())
+
+  posts TagsOnPosts[]
+
+  @@index([slug])
+}
+
+// Many-to-Many: Post <-> Tag
+model TagsOnPosts {
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId String
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId  String
+
+  @@id([postId, tagId])
+}
+
+// ==================== MEDYA ====================
+model Media {
+  id         String   @id @default(cuid())
+  filename   String
+  url        String
+  mimeType   String
+  size       Int
+  width      Int?
+  height     Int?
+  alt        String?
+  createdAt  DateTime @default(now())
+  uploadedBy String?
+}

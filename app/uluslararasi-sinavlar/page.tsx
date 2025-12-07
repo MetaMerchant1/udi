@@ -174,62 +174,27 @@ export default function UluslararasiSinavlarPage() {
 
       {/* Details */}
       <Section className="bg-gray-50">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="heading-2 text-gray-900 mb-6">
-              Program İçeriğimiz
-            </h2>
-            <ul className="space-y-4">
-              {[
-                'Sınav stratejileri ve zaman yönetimi',
-                'Her bölüm için özel teknikler',
-                'Gerçek sınav soruları ile pratik',
-                'Düzenli deneme sınavları ve analiz',
-                'Zayıf yönlerin belirlenmesi ve güçlendirilmesi',
-                'Sınav günü için psikolojik hazırlık',
-                'Online kaynak kütüphanesi',
-                'Sınırsız soru sorma imkanı',
-              ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-700">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <Card className="bg-gradient-to-br from-red-50 to-orange-50 border-red-200 p-8">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Kurs Seçenekleri</h3>
-            <div className="space-y-6">
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Yoğun Program</h4>
-                <p className="text-gray-600 text-sm">Haftada 5 gün, 8 haftalık yoğun hazırlık</p>
-                <p className="text-red-600 font-semibold text-sm mt-1">En hızlı sonuç</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Standart Program</h4>
-                <p className="text-gray-600 text-sm">Haftada 3 gün, 12 haftalık kapsamlı hazırlık</p>
-                <p className="text-red-600 font-semibold text-sm mt-1">En popüler</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Esnek Program</h4>
-                <p className="text-gray-600 text-sm">Kendi hızınızda ilerleyin, 6 ay erişim</p>
-                <p className="text-red-600 font-semibold text-sm mt-1">En esnek</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-gray-900 mb-2">Bireysel Ders</h4>
-                <p className="text-gray-600 text-sm">Birebir özel dersler, kişiye özel program</p>
-                <p className="text-red-600 font-semibold text-sm mt-1">En etkili</p>
-              </div>
-              <div className="pt-4 border-t border-red-200">
-                <button
-                  onClick={openModal}
-                  className="w-full px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors font-semibold"
-                >
-                  Ücretsiz Deneme Dersi
-                </button>
-              </div>
-            </div>
-          </Card>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="heading-2 text-gray-900 mb-6 text-center">
+            Program İçeriğimiz
+          </h2>
+          <ul className="space-y-4">
+            {[
+              'Sınav stratejileri ve zaman yönetimi',
+              'Her bölüm için özel teknikler',
+              'Gerçek sınav soruları ile pratik',
+              'Düzenli deneme sınavları ve analiz',
+              'Zayıf yönlerin belirlenmesi ve güçlendirilmesi',
+              'Sınav günü için psikolojik hazırlık',
+              'Online kaynak kütüphanesi',
+              'Sınırsız soru sorma imkanı',
+            ].map((item, index) => (
+              <li key={index} className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
+                <span className="text-gray-700">{item}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </Section>
 

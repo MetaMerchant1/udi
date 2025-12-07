@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Mail, Phone } from 'lucide-react';
 import Container from '@/components/shared/Container';
 
 const footerLinks = {
@@ -27,10 +27,7 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { name: 'Facebook', icon: Facebook, href: '#' },
-  { name: 'Instagram', icon: Instagram, href: '#' },
-  { name: 'Twitter', icon: Twitter, href: '#' },
-  { name: 'LinkedIn', icon: Linkedin, href: '#' },
+  { name: 'Instagram', icon: Instagram, href: 'https://instagram.com/undei.n' },
 ];
 
 export default function Footer() {
@@ -71,9 +68,9 @@ export default function Footer() {
                   <Phone className="h-5 w-5 text-primary-400" />
                   <span>+90 5XX XXX XX XX</span>
                 </a>
-                <a href="mailto:info@example.com" className="flex items-center gap-2 hover:text-white transition-colors">
+                <a href="mailto:unitedevelopmentinnovation@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
                   <Mail className="h-5 w-5 text-primary-400" />
-                  <span>info@example.com</span>
+                  <span>unitedevelopmentinnovation@gmail.com</span>
                 </a>
               </div>
             </div>

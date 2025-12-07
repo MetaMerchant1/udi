@@ -98,10 +98,6 @@ export default function HeroSection() {
                 <div className="text-3xl sm:text-4xl font-bold text-white">50+</div>
                 <div className="text-sm sm:text-base text-primary-200 mt-1">Partner Üniversite</div>
               </div>
-              <div>
-                <div className="text-3xl sm:text-4xl font-bold text-white">%98</div>
-                <div className="text-sm sm:text-base text-primary-200 mt-1">Vize Başarı Oranı</div>
-              </div>
             </motion.div>
           </motion.div>
         </div>

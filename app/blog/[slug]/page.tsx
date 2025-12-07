@@ -1,81 +1,102 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Calendar, User, ArrowLeft, Facebook, Twitter, Linkedin } from 'lucide-react';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import { Calendar, User, ArrowLeft, Facebook, Twitter, Linkedin, Eye, Tag } from 'lucide-react';
 import Container from '@/components/shared/Container';
 import Section from '@/components/shared/Section';
 import Button from '@/components/shared/Button';
 import { formatDate } from '@/lib/utils';
+import { prisma } from '@/lib/prisma';
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
+async function getBlogPost(slug: string) {
+  try {
+    const post = await prisma.post.findFirst({
+      where: {
+        slug,
+        status: 'PUBLISHED',
+      },
+      include: {
+        author: {
+          select: {
+            name: true,
+          },
+        },
+        categories: {
+          select: {
+            category: {
+              select: {
+                id: true,
+                name: true,
+                slug: true,
+                color: true,
+              },
+            },
+          },
+        },
+        tags: {
+          select: {
+            tag: {
+              select: {
+                id: true,
+                name: true,
+                slug: true,
+              },
+            },
+          },
+        },
+      },
+    });
+
+    if (post) {
+      // Görüntülenme sayısını artır
+      await prisma.post.update({
+        where: { id: post.id },
+        data: { viewCount: { increment: 1 } },
+      });
+    }
+
+    return post;
+  } catch (error) {
+    console.error('Blog post fetch error:', error);
+    return null;
+  }
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  // In production, fetch real post data
-  const title = slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+  const post = await getBlogPost(slug);
+
+  if (!post) {
+    return {
+      title: 'Yazı Bulunamadı',
+    };
+  }
 
   return {
-    title,
-    description: `${title} hakkında detaylı bilgi ve rehber.`,
+    title: post.metaTitle || post.title,
+    description: post.metaDescription || post.excerpt,
     openGraph: {
-      title: `${title} | EğitimDanışmanlık Blog`,
-      description: `${title} hakkında detaylı bilgi ve rehber.`,
+      title: `${post.metaTitle || post.title} | UDI Yurtdışı Eğitim Blog`,
+      description: post.metaDescription || post.excerpt,
+      images: post.featuredImage ? [{ url: post.featuredImage }] : undefined,
     },
   };
 }
 
-// Mock blog post data
-const mockPost = {
-  _id: '1',
-  title: 'Amerika\'da Üniversite Eğitimi: Kapsamlı Rehber',
-  slug: { current: 'amerikada-universite-egitimi-rehber' },
-  excerpt: 'ABD\'de üniversite okumak isteyenler için detaylı başvuru süreçleri, maliyetler ve ipuçları.',
-  publishedAt: '2025-01-15',
-  author: { name: 'Esra Yılmaz' },
-  categories: [{ title: 'Amerika', slug: { current: 'amerika' } }],
-  body: `
-    <h2>Giriş</h2>
-    <p>Amerika Birleşik Devletleri, dünya çapında en prestijli üniversitelere ev sahipliği yapmaktadır. Harvard, MIT, Stanford gibi dünyaca ünlü kurumlar, her yıl binlerce uluslararası öğrenci kabul etmektedir.</p>
-
-    <h2>Başvuru Süreci</h2>
-    <p>ABD üniversitelerine başvuru süreci genellikle bir yıl öncesinden başlar ve şu adımları içerir:</p>
-    <ul>
-      <li>Üniversite araştırması ve seçimi</li>
-      <li>Standart test sınavları (SAT, ACT, GRE, GMAT)</li>
-      <li>Dil sınavları (TOEFL, IELTS)</li>
-      <li>Başvuru formlarının doldurulması</li>
-      <li>Motivasyon mektubu ve referans mektupları</li>
-      <li>Finansal belgelerin hazırlanması</li>
-    </ul>
-
-    <h2>Maliyetler</h2>
-    <p>ABD'de eğitim maliyetleri üniversiteye ve eyalete göre değişmektedir. Yıllık ortalama maliyetler:</p>
-    <ul>
-      <li>Kamu üniversiteleri: $20,000 - $35,000</li>
-      <li>Özel üniversiteler: $35,000 - $60,000</li>
-      <li>Yaşam giderleri: $10,000 - $15,000</li>
-    </ul>
-
-    <h2>Burs İmkanları</h2>
-    <p>Birçok üniversite, uluslararası öğrencilere burs ve finansal destek sağlamaktadır. Merit-based ve need-based burslar en yaygın olanlarıdır.</p>
-
-    <h2>Sonuç</h2>
-    <p>ABD'de eğitim almak, akademik ve profesyonel gelişim için harika bir fırsat sunmaktadır. Doğru hazırlık ve planlama ile bu hayalinizi gerçeğe dönüştürebilirsiniz.</p>
-  `,
-};
-
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  // In production, use real data:
-  // const post = await getBlogPost(slug);
-  const post = mockPost;
+  const post = await getBlogPost(slug);
 
   if (!post) {
-    return <div>Post not found</div>;
+    notFound();
   }
 
-  const shareUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${slug}`;
+  const shareUrl = `${process.env.NEXT_PUBLIC_SITE_URL || 'https://udi.edu.tr'}/blog/${slug}`;
 
   return (
     <div className="pt-20 sm:pt-24 md:pt-32">
@@ -87,49 +108,95 @@ export default async function BlogPostPage({ params }: Props) {
         </Link>
 
         <article>
+          {/* Featured Image */}
+          {post.featuredImage && (
+            <div className="relative h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden mb-8">
+              <Image
+                src={post.featuredImage}
+                alt={post.featuredImageAlt || post.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          )}
+
           {/* Categories */}
           {post.categories && post.categories.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-6">
-              {post.categories.map((category) => (
-                <span
-                  key={category.slug.current}
-                  className="inline-block px-4 py-2 bg-primary-100 text-primary-700 text-sm font-medium rounded-full"
+              {post.categories.map(({ category }) => (
+                <Link
+                  key={category.id}
+                  href={`/blog?category=${category.slug}`}
+                  className="inline-block px-4 py-2 text-sm font-medium rounded-full transition-colors hover:opacity-80"
+                  style={{
+                    backgroundColor: category.color ? `${category.color}20` : '#e5e7eb',
+                    color: category.color || '#374151',
+                  }}
                 >
-                  {category.title}
-                </span>
+                  {category.name}
+                </Link>
               ))}
             </div>
           )}
 
           {/* Title */}
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-6">
             {post.title}
           </h1>
 
           {/* Meta */}
-          <div className="flex items-center gap-6 text-gray-600 mb-8 pb-8 border-b border-gray-200">
+          <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-gray-600 mb-8 pb-8 border-b border-gray-200">
             {post.author && (
               <div className="flex items-center gap-2">
                 <User className="h-5 w-5" />
                 <span>{post.author.name}</span>
               </div>
             )}
+            {post.publishedAt && (
+              <div className="flex items-center gap-2">
+                <Calendar className="h-5 w-5" />
+                <span>{formatDate(post.publishedAt.toISOString())}</span>
+              </div>
+            )}
             <div className="flex items-center gap-2">
-              <Calendar className="h-5 w-5" />
-              <span>{formatDate(post.publishedAt)}</span>
+              <Eye className="h-5 w-5" />
+              <span>{post.viewCount.toLocaleString('tr-TR')} görüntülenme</span>
             </div>
           </div>
 
           {/* Content */}
-          <div
-            className="prose prose-lg max-w-none mb-12"
-            dangerouslySetInnerHTML={{ __html: post.body }}
-          />
+          {post.contentHtml ? (
+            <div
+              className="prose prose-lg max-w-none mb-12 prose-headings:text-gray-900 prose-p:text-gray-600 prose-a:text-primary-600 prose-strong:text-gray-900"
+              dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+            />
+          ) : (
+            <p className="text-gray-600 mb-12">{post.excerpt}</p>
+          )}
+
+          {/* Tags */}
+          {post.tags && post.tags.length > 0 && (
+            <div className="border-t border-gray-200 pt-8 mb-8">
+              <div className="flex items-center flex-wrap gap-2">
+                <Tag className="h-5 w-5 text-gray-500" />
+                {post.tags.map(({ tag }) => (
+                  <Link
+                    key={tag.id}
+                    href={`/blog?tag=${tag.slug}`}
+                    className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 transition-colors"
+                  >
+                    {tag.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* Share Buttons */}
           <div className="border-t border-gray-200 pt-8">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Bu yazıyı paylaş:</h3>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-3">
               <a
                 href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
                 target="_blank"
@@ -140,7 +207,7 @@ export default async function BlogPostPage({ params }: Props) {
                 Facebook
               </a>
               <a
-                href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${post.title}`}
+                href={`https://twitter.com/intent/tweet?url=${shareUrl}&text=${encodeURIComponent(post.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-sky-500 text-white rounded-lg hover:bg-sky-600 transition-colors"
@@ -159,6 +226,7 @@ export default async function BlogPostPage({ params }: Props) {
               </a>
             </div>
           </div>
+
         </article>
 
         {/* CTA */}

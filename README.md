@@ -1,218 +1,232 @@
-# Yurtdışı Eğitim Danışmanlık Web Sitesi
+# UDI Yurtdisi Egitim Danismanlik
 
-Modern, SEO optimize ve responsive yurtdışı eğitim danışmanlık web sitesi.
+Modern, SEO optimize ve responsive yurtdisi egitim danismanlik web sitesi.
 
-## 🚀 Özellikler
+## Teknoloji Stack
 
-- ✅ **Next.js 14** (App Router)
-- ✅ **React 18 & TypeScript**
-- ✅ **TailwindCSS v4** ile modern tasarım (@theme sistemi)
-- ✅ **SEO Optimize** (metadata, sitemap, robots.txt)
-- ✅ **Framer Motion** animasyonlar
-- ✅ **React Hook Form** ile form yönetimi
-- ✅ **Responsive & Mobile-first** design
-- ✅ **Accessibility** (WCAG AA)
-- ✅ **Lucide Icons**
+| Kategori | Teknoloji |
+|----------|-----------|
+| Framework | Next.js 15 |
+| UI | React 19 + TypeScript |
+| Styling | TailwindCSS v4 |
+| Database | PostgreSQL + Prisma ORM |
+| Auth | NextAuth.js v5 |
+| Editor | Tiptap |
+| Icons | Lucide React |
+| Animations | Framer Motion |
 
-## 📄 Sayfalar
+## Kurulum
 
-### Ana Sayfa (/)
-- Hero bölümü (animasyonlu, gradient background)
-- Hizmetler kartları (4 adet)
-- Testimonials (başarı hikayeleri)
-- Partner üniversiteler
-- CTA (Call to Action) bölümü
-
-### Kurumsal
-- **Hakkımızda** - Şirket hikayesi, değerler, ekip, istatistikler
-- **İletişim** - İletişim formu, harita, iletişim bilgileri
-
-### Hizmetler
-- **Hizmetler Genel** - Tüm hizmetlerin listesi
-- **Üniversite Başvurusu** - Detaylı başvuru süreci, adımlar, ülkeler
-- **Vize Danışmanlığı** - Vize türleri, başarı oranları, süreç
-- **Dil Eğitimi** - IELTS, TOEFL, genel İngilizce programları
-
-### Blog
-- **Blog Listesi** - Tüm blog yazıları (kategoriler, tarih, yazar)
-- **Blog Detay** - Dinamik blog sayfası, sosyal paylaşım butonları
-
-## 🛠️ Kurulum
-
-### 1. Bağımlılıkları Yükleyin
+### 1. Bagimliliklari Yukle
 ```bash
 npm install
 ```
 
-### 2. Ortam Değişkenlerini Ayarlayın
-`.env.local` dosyasını düzenleyin:
+### 2. Ortam Degiskenlerini Ayarla
+`.env` dosyasini duzenle:
 ```env
-NEXT_PUBLIC_SITE_URL=https://yourdomain.com
+# Database
+DATABASE_URL="postgresql://user:password@localhost:5432/udi_blog"
+
+# NextAuth
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="your-secret-key-here"
+
+# Site
+NEXT_PUBLIC_SITE_URL="https://udi.edu.tr"
 ```
 
-### 3. Geliştirme Sunucusunu Başlatın
+### 3. Veritabanini Olustur
+```bash
+# Prisma migration
+npm run db:push
+
+# Admin kullanici olustur
+npm run db:seed
+```
+
+### 4. Gelistirme Sunucusunu Baslat
 ```bash
 npm run dev
 ```
 
-Tarayıcınızda açın: [http://localhost:3000](http://localhost:3000)
+Tarayici: http://localhost:3000
 
-## 📦 Build & Deploy
+## Admin Panel
+
+Admin paneline `/admin` adresinden erisebilirsiniz.
+
+### Varsayilan Admin Bilgileri
+- Email: `admin@udi.com`
+- Sifre: `admin123`
+
+### Admin Sayfalari
+
+| Sayfa | Adres | Aciklama |
+|-------|-------|----------|
+| Dashboard | `/admin` | Genel istatistikler |
+| Yazilar | `/admin/yazilar` | Blog yazilari listesi |
+| Yeni Yazi | `/admin/yazilar/yeni` | Yeni blog yazisi olustur |
+| Yazi Duzenle | `/admin/yazilar/[id]` | Mevcut yaziyi duzenle |
+| Kategoriler | `/admin/kategoriler` | Kategori yonetimi |
+| Etiketler | `/admin/etiketler` | Etiket yonetimi |
+| Yorumlar | `/admin/yorumlar` | Yorum moderasyonu |
+
+### Ozellikler
+
+**Yazi Yonetimi**
+- Zengin metin editoru (Tiptap)
+- Gorsel yukleme ve optimizasyon
+- SEO meta alanları (title, description)
+- Kategori ve etiket atama
+- Taslak/Yayinla durumu
+- Yorum acma/kapama
+
+**Kategori Yonetimi**
+- Renk secimi
+- Aciklama alani
+- Otomatik slug olusturma
+
+**Etiket Yonetimi**
+- Hizli ekleme/silme
+- Yazi sayisi takibi
+
+**Yorum Moderasyonu**
+- Onaylama/Reddetme
+- Spam isaretleme
+- Filtreleme (durum, arama)
+
+## Veritabani Komutlari
 
 ```bash
-# Production build
-npm run build
+# Veritabani sema push
+npm run db:push
 
-# Production sunucusu
-npm start
+# Migration olustur
+npm run db:migrate
 
-# Type checking
-npm run lint
+# Seed data yukle
+npm run db:seed
+
+# Prisma Studio (GUI)
+npm run db:studio
 ```
 
-## 🎨 TailwindCSS v4 Özellikleri
-
-Bu projede TailwindCSS v4 kullanılmaktadır:
-- CSS-first configuration (`@theme` directive)
-- Modern performans optimizasyonları
-- Lightning CSS ile hızlı build
-- Özel renkler ve animasyonlar
-
-### Özel Temalar:
-```css
-@theme {
-  --color-primary-*: /* Mavi tonları */
-  --color-secondary-*: /* Gri tonları */
-  --font-family-sans: Inter
-}
-```
-
-### Animasyonlar:
-- `animate-blob` - Yüzen şekiller
-- `animation-delay-*` - Gecikme sınıfları
-- Keyframes: fade-in, slide-up, slide-down
-
-## 📂 Proje Yapısı
+## Proje Yapisi
 
 ```
 /app
-  /page.tsx                    # Ana sayfa
-  /layout.tsx                  # Root layout
-  /globals.css                 # TailwindCSS v4 config
-  /hakkimizda/page.tsx
-  /hizmetler/page.tsx
-  /universite-basvurusu/page.tsx
-  /vize-danismanligi/page.tsx
-  /dil-egitimi/page.tsx
-  /blog/
-    page.tsx                   # Blog listesi
-    [slug]/page.tsx            # Blog detay
-  /iletisim/page.tsx
-  /robots.ts                   # SEO robots
-  /sitemap.ts                  # SEO sitemap
+  /admin                    # Admin panel
+    /giris                  # Login sayfasi
+    /yazilar               # Yazi yonetimi
+    /kategoriler           # Kategori yonetimi
+    /etiketler             # Etiket yonetimi
+    /yorumlar              # Yorum moderasyonu
+  /api
+    /admin                  # Admin API'lari
+      /posts               # Yazi CRUD
+      /categories          # Kategori CRUD
+      /tags                # Etiket CRUD
+      /comments            # Yorum CRUD
+      /upload              # Gorsel yukleme
+    /auth                   # NextAuth API
+    /blog                   # Public blog API
+  /blog                     # Public blog sayfalari
+  /hakkimizda
+  /hizmetler
+  /iletisim
+  ...
 
 /components
-  /layout                      # Header, Footer, Navigation
-  /home                        # Ana sayfa bileşenleri
-  /shared                      # Ortak bileşenler (Button, Card, etc.)
+  /admin                    # Admin componentleri
+    /layout                # Sidebar, Header
+    /posts                 # PostEditor
+  /blog                    # Blog componentleri
+    CommentSection.tsx
+  /layout                  # Site layout
+  /shared                  # Ortak componentler
 
 /lib
-  /types.ts                    # TypeScript tipleri
-  /utils.ts                    # Yardımcı fonksiyonlar
+  auth.ts                  # NextAuth config
+  prisma.ts               # Prisma client
+
+/prisma
+  schema.prisma           # Veritabani semasi
+  seed.ts                 # Seed data
 
 /public
-  /images                      # Görseller
-  /icons                       # İkonlar
+  /uploads                # Yuklenen gorseller
 ```
 
-## 🔍 SEO Özellikleri
+## API Endpoints
 
-✅ Her sayfada özel **metadata** (title, description)
-✅ **Open Graph** tags (Facebook, Twitter, LinkedIn)
-✅ Otomatik **sitemap.xml**
-✅ **Robots.txt**
-✅ **Image optimization** (next/image)
-✅ **Server-Side Rendering** (SSR)
-✅ **Static Site Generation** (SSG)
-✅ Structured data hazırlığı (JSON-LD)
-
-## 🎯 Teknoloji Stack
-
-| Kategori | Teknoloji |
-|----------|-----------|
-| **Framework** | Next.js 14 |
-| **UI Library** | React 18 |
-| **Language** | TypeScript |
-| **Styling** | TailwindCSS v4 |
-| **Animations** | Framer Motion |
-| **Forms** | React Hook Form |
-| **Icons** | Lucide React |
-| **SEO** | next-seo |
-
-## 📋 Önerilen Geliştirmeler
-
-- [ ] **Google Analytics 4** entegrasyonu
-- [ ] **Resend.com** ile email gönderimi
-- [ ] **Google Maps** entegrasyonu
-- [ ] **Headless CMS** (Sanity.io veya Contentful)
-- [ ] **Multilingual** support (i18n)
-- [ ] **Admin paneli**
-- [ ] **Öğrenci başvuru takip** sistemi
-- [ ] **Ödeme sistemi** (Stripe/PayPal)
-- [ ] **Chatbot/Live chat**
-- [ ] **Push notifications**
-
-## 🎨 Tasarım Renkleri
-
-### Primary (Mavi)
-- `primary-600`: #1E40AF (Ana mavi)
-- `primary-700`: #1E3A8A (Koyu mavi)
-
-### Secondary (Gri)
-- `secondary-100`: #F3F4F6 (Açık gri)
-- `secondary-200`: #E5E7EB (Orta gri)
-
-## 📱 Responsive Breakpoints
+### Admin API (Auth gerekli)
 
 ```
-sm: 640px   # Tablet
-md: 768px   # Tablet landscape
-lg: 1024px  # Desktop
-xl: 1280px  # Large desktop
+GET    /api/admin/posts          # Yazilar listesi
+POST   /api/admin/posts          # Yeni yazi
+GET    /api/admin/posts/[id]     # Tek yazi
+PUT    /api/admin/posts/[id]     # Yazi guncelle
+DELETE /api/admin/posts/[id]     # Yazi sil
+
+GET    /api/admin/categories     # Kategoriler
+POST   /api/admin/categories     # Yeni kategori
+PUT    /api/admin/categories/[id]
+DELETE /api/admin/categories/[id]
+
+GET    /api/admin/tags           # Etiketler
+POST   /api/admin/tags
+PUT    /api/admin/tags/[id]
+DELETE /api/admin/tags/[id]
+
+GET    /api/admin/comments       # Yorumlar
+PUT    /api/admin/comments/[id]  # Durum guncelle
+DELETE /api/admin/comments/[id]
+
+POST   /api/admin/upload         # Gorsel yukle
 ```
 
-## 🚀 Deployment
+### Public API
 
-### Vercel (Önerilen)
+```
+GET  /api/blog                   # Yayinlanan yazilar
+GET  /api/blog/[slug]           # Tek yazi (by slug)
+GET  /api/blog/comments?postId= # Onaylanmis yorumlar
+POST /api/blog/comments         # Yeni yorum (onay bekler)
+```
+
+## Deployment
+
+### Production Build
 ```bash
-vercel deploy
+npm run build
+npm start
 ```
 
-### Netlify
+### Environment Variables (Production)
+```env
+DATABASE_URL="postgresql://..."
+NEXTAUTH_URL="https://udi.edu.tr"
+NEXTAUTH_SECRET="secure-random-string"
+NEXT_PUBLIC_SITE_URL="https://udi.edu.tr"
+```
+
+### PostgreSQL Kurulumu (Ubuntu)
 ```bash
-netlify deploy --prod
+sudo apt install postgresql
+sudo -u postgres createuser --interactive
+sudo -u postgres createdb udi_blog
 ```
 
-### Docker
-```bash
-docker build -t egitim-danismanlik .
-docker run -p 3000:3000 egitim-danismanlik
-```
+## SEO Ozellikleri
 
-## 📄 Lisans
+- Her sayfada ozel metadata
+- Open Graph tags
+- Otomatik sitemap.xml
+- robots.txt
+- Image optimization
+- Server-Side Rendering
+
+## Lisans
 
 MIT
-
-## 📧 İletişim
-
-- **Website**: [yourdomain.com](https://yourdomain.com)
-- **Email**: info@example.com
-- **Telefon**: +90 5XX XXX XX XX
-
----
-
-**Geliştirici Notları:**
-- TailwindCSS v4 kullanılmıştır (@theme directive ile)
-- Sanity.io bağımlılıkları kaldırılmıştır (isteğe bağlı eklenebilir)
-- Mock data ile çalışmaktadır (blog için)
-- Production'da gerçek CMS entegrasyonu önerilir

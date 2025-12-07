@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, Grand_Hotel } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import { ContactModalProvider } from '@/contexts/ContactModalContext';
-import ContactModal from '@/components/shared/ContactModal';
+import LayoutWrapper from '@/components/layout/LayoutWrapper';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -86,14 +83,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${plusJakartaSans.variable} ${grandHotel.variable} font-sans`}>
-        <ContactModalProvider>
-          <Header />
-          <main className="flex-1">
-            {children}
-          </main>
-          <Footer />
-          <ContactModal />
-        </ContactModalProvider>
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );
