@@ -23,7 +23,7 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#220b47] shadow-md' : 'bg-[#220b47]/95 backdrop-blur-sm'
+        isScrolled ? 'bg-[#24363d] shadow-md' : 'bg-[#24363d]/95 backdrop-blur-sm'
       }`}
     >
       {/* Main Header */}
@@ -45,7 +45,7 @@ export default function Header() {
               <Button
                 size="sm"
                 onClick={openModal}
-                className="!bg-white !text-[#220b47] hover:!bg-gray-100 !border-white hover:!border-gray-100 font-semibold"
+                className="!bg-white !text-[#24363d] hover:!bg-gray-100 !border-white hover:!border-gray-100 font-semibold"
               >
                 İletişim
               </Button>

@@ -43,7 +43,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         {/* Logo & Title */}
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#1a0836]">
+          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#24363d]">
             <Lock className="h-8 w-8 text-white" />
           </div>
           <h1 className="text-2xl font-bold text-gray-900">
@@ -125,7 +125,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#1a0836] py-3 font-medium text-white transition-colors hover:bg-[#2a1256] disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#24363d] py-3 font-medium text-white transition-colors hover:bg-[#1c2a2f] disabled:cursor-not-allowed disabled:opacity-50"
             >
               {loading ? (
                 <>

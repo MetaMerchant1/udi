@@ -230,7 +230,7 @@ export default async function BlogPostPage({ params }: Props) {
         </article>
 
         {/* CTA */}
-        <Section className="bg-gradient-to-br from-primary-600 via-primary-700 to-indigo-700 rounded-2xl text-white mt-16">
+        <Section className="bg-gradient-to-br from-secondary-800 via-secondary-900 to-[#1c2a2f] rounded-2xl text-white mt-16">
           <div className="text-center">
             <h2 className="text-3xl font-bold mb-4">
               Yurtdışı Eğitim Hayalinizi Gerçekleştirin

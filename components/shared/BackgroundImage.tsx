@@ -20,7 +20,7 @@ export default function BackgroundImage({
   zoom = false,
 }: BackgroundImageProps) {
   const overlayClasses = {
-    gradient: `bg-gradient-to-br from-primary-600/${overlayOpacity} via-primary-700/${overlayOpacity} to-primary-900/${overlayOpacity}`,
+    gradient: `bg-gradient-to-br from-secondary-800/${overlayOpacity} via-secondary-900/${overlayOpacity} to-[#1c2a2f]/${overlayOpacity}`,
     dark: `bg-black/${overlayOpacity}`,
     light: `bg-white/${overlayOpacity}`,
     none: '',

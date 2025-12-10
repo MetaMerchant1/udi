@@ -65,7 +65,7 @@ export default async function BlogPage() {
   return (
     <div className="pt-20 sm:pt-24 md:pt-32">
       {/* Hero */}
-      <Section className="bg-gradient-to-br from-primary-600 via-primary-700 to-indigo-700 text-white relative overflow-hidden">
+      <Section className="bg-gradient-to-br from-secondary-800 via-secondary-900 to-[#1c2a2f] text-white relative overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -73,7 +73,7 @@ export default async function BlogPage() {
         ></div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600/95 to-primary-800/95"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary-800/95 to-secondary-900/95"></div>
 
         {/* Content */}
         <div className="relative z-10 text-center max-w-3xl mx-auto">

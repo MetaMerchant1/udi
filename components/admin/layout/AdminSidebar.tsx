@@ -67,7 +67,7 @@ export default function AdminSidebar() {
   };
 
   return (
-    <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-[#1a0836] text-white">
+    <aside className="fixed left-0 top-0 z-40 h-screen w-64 bg-[#24363d] text-white">
       {/* Logo */}
       <div className="flex h-16 items-center border-b border-white/10 px-6">
         <Link href="/admin" className="text-xl font-bold">

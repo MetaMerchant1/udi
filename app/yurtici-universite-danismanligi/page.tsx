@@ -232,7 +232,7 @@ export default function YurticiUniversiteDanismanligiPage() {
       </Section>
 
       {/* CTA */}
-      <Section className="bg-gradient-to-br from-primary-600 via-primary-700 to-indigo-700 text-white">
+      <Section className="bg-gradient-to-br from-secondary-800 via-secondary-900 to-[#1c2a2f] text-white">
         <div className="text-center">
           <h2 className="heading-2 mb-6">
             Doğru Tercih İçin Doğru Rehberlik

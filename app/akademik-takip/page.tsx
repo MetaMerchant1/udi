@@ -175,7 +175,7 @@ export default function AkademikTakipPage() {
       </Section>
 
       {/* CTA */}
-      <Section className="bg-gradient-to-br from-purple-600 to-indigo-700 text-white">
+      <Section className="bg-gradient-to-br from-secondary-800 via-secondary-900 to-[#1c2a2f] text-white">
         <div className="text-center">
           <h2 className="heading-2 mb-6">
             Akademik Başarınızı Garanti Altına Alın

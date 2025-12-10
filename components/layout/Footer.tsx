@@ -32,7 +32,7 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#220b47] text-gray-300">
+    <footer className="bg-[#24363d] text-gray-300">
       <Container>
         {/* Main Footer */}
         <div className="py-12 lg:py-16">

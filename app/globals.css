@@ -1,21 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #f5f3ff;
-  --color-primary-100: #ede9fe;
-  --color-primary-200: #ddd6fe;
-  --color-primary-300: #c4b5fd;
-  --color-primary-400: #a78bfa;
-  --color-primary-500: #8b5cf6;
-  --color-primary-600: #220b47;
-  --color-primary-700: #1a0836;
-  --color-primary-800: #120625;
-  --color-primary-900: #0a0314;
+  /* Ana renk: Altın sarısı #f4c20b */
+  --color-primary-50: #fffef7;
+  --color-primary-100: #fefce8;
+  --color-primary-200: #fef3c7;
+  --color-primary-300: #fde68a;
+  --color-primary-400: #fcd34d;
+  --color-primary-500: #f4c20b;
+  --color-primary-600: #d4a50a;
+  --color-primary-700: #a38008;
+  --color-primary-800: #7a6006;
+  --color-primary-900: #524004;
 
-  --color-secondary-50: #f9fafb;
-  --color-secondary-100: #f3f4f6;
-  --color-secondary-200: #e5e7eb;
-  --color-secondary-300: #d1d5db;
+  /* İkincil renk: Koyu mavi-gri #24363d */
+  --color-secondary-50: #f4f6f7;
+  --color-secondary-100: #e3e8ea;
+  --color-secondary-200: #c9d2d6;
+  --color-secondary-300: #a4b3b9;
+  --color-secondary-400: #788d96;
+  --color-secondary-500: #5d727b;
+  --color-secondary-600: #4f5f68;
+  --color-secondary-700: #445056;
+  --color-secondary-800: #3b4449;
+  --color-secondary-900: #24363d;
 
   --color-teal-50: #f0fdfa;
   --color-teal-100: #ccfbf1;
@@ -112,7 +120,7 @@
   }
 
   body {
-    background-color: white;
+    background-color: #feffff;
     color: rgb(17 24 39);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

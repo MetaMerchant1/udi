@@ -9,7 +9,7 @@ import Section from '@/components/shared/Section';
 
 export default function CTASection() {
   return (
-    <Section className="bg-gradient-to-br from-primary-600 via-primary-700 to-indigo-700">
+    <Section className="bg-gradient-to-br from-secondary-800 via-secondary-900 to-[#1c2a2f]">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -23,10 +23,10 @@ export default function CTASection() {
         <h2 className="heading-2 mb-4">
           Kariyer Hedeflerinize Ulaşmanın Tam Zamanı
         </h2>
-        <p className="text-xl text-primary-100 mb-3 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl text-gray-300 mb-3 max-w-3xl mx-auto leading-relaxed">
           Kapsamlı danışmanlık hizmetlerimiz ve profesyonel eğitim programlarımızla <span className="font-semibold text-white">hayalinizdeki geleceği inşa edin</span>.
         </p>
-        <p className="text-lg text-primary-200 mb-8 max-w-2xl mx-auto">
+        <p className="text-lg text-primary-400 mb-8 max-w-2xl mx-auto">
           25+ yıllık deneyimimizle yanınızdayız
         </p>
 
@@ -48,7 +48,7 @@ export default function CTASection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-12 pt-8 border-t border-white/20"
         >
-          <div className="flex flex-wrap justify-center items-center gap-8 text-primary-100">
+          <div className="flex flex-wrap justify-center items-center gap-8 text-gray-300">
             <div className="flex items-center gap-2">
               <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" />
