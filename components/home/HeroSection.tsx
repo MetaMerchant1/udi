@@ -88,13 +88,13 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-12 pt-8 border-t border-white/20 max-w-2xl mx-auto"
+              className="flex justify-center gap-8 sm:gap-12 md:gap-16 mt-12 pt-8 border-t border-white/20 max-w-2xl mx-auto"
             >
-              <div>
+              <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-bold text-white">1000+</div>
                 <div className="text-sm sm:text-base text-primary-200 mt-1">Başarılı Öğrenci</div>
               </div>
-              <div>
+              <div className="text-center">
                 <div className="text-3xl sm:text-4xl font-bold text-white">50+</div>
                 <div className="text-sm sm:text-base text-primary-200 mt-1">Partner Üniversite</div>
               </div>

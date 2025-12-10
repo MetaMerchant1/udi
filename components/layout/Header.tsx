@@ -31,18 +31,15 @@ export default function Header() {
       <Container>
         <div className="flex items-center justify-between py-3 relative">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
+          <Link href="/" className="flex items-center group">
             <Image
-              src="/images/logo.jpg"
+              src="/images/header.jpg"
               alt="United Development and Innovation"
               width={50}
               height={50}
               className="h-10 sm:h-12 w-auto transition-all duration-300 group-hover:scale-105"
               priority
             />
-            <span className="font-handwriting text-xl sm:text-2xl lg:text-3xl text-white leading-tight tracking-wide transition-all duration-300 group-hover:scale-105 drop-shadow-lg">
-              United Development and Innovation
-            </span>
           </Link>
 
           {/* Navigation */}
