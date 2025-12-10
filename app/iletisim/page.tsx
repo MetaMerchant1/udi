@@ -124,7 +124,7 @@ export default function IletisimPage() {
                     <a href="tel:+905325172006" className="text-gray-600 hover:text-primary-600 transition-colors">
                       0532 517 20 06
                     </a>
-                    <p className="text-sm text-gray-500 mt-1">Pazartesi - Cuma: 09:00 - 18:00</p>
+                    <p className="text-sm text-gray-500 mt-1">Pazartesi - Cumartesi: 10:00 - 18:00</p>
                   </div>
                 </div>
               </Card>
@@ -165,11 +165,11 @@ export default function IletisimPage() {
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-700">Pazartesi - Cuma:</span>
-                  <span className="font-semibold text-gray-900">09:00 - 18:00</span>
+                  <span className="font-semibold text-gray-900">10:00 - 18:00</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-700">Cumartesi:</span>
-                  <span className="font-semibold text-gray-900">10:00 - 15:00</span>
+                  <span className="font-semibold text-gray-900">10:00 - 18:00</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-700">Pazar:</span>
