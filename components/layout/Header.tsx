@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import Container from '@/components/shared/Container';
 import Navigation from './Navigation';
 import Button from '@/components/shared/Button';
@@ -31,20 +30,10 @@ export default function Header() {
       <Container>
         <div className="flex items-center justify-between py-3 relative">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <Image
-              src="/images/header.jpg"
-              alt="United Development and Innovation"
-              width={50}
-              height={50}
-              className="h-10 sm:h-12 w-auto transition-all duration-300 group-hover:scale-105"
-              priority
-            />
-            <div className="hidden sm:flex items-baseline gap-2 text-white">
-              <span className="text-xl font-bold">UDI</span>
-              <span className="text-gray-300">|</span>
-              <span className="text-sm italic text-gray-200">United Development and Innovation</span>
-            </div>
+          <Link href="/" className="flex items-baseline gap-2 text-white group">
+            <span className="text-2xl font-bold transition-all duration-300 group-hover:scale-105">UDI</span>
+            <span className="text-gray-300">|</span>
+            <span className="text-base italic text-gray-200 transition-all duration-300 group-hover:scale-105">United Development and Innovation</span>
           </Link>
 
           {/* Navigation */}
