@@ -152,7 +152,6 @@ export default function IletisimPage() {
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Adres</h3>
                     <p className="text-gray-600">
-                      Örnek Mahallesi, Örnek Sokak No:1<br />
                       İstanbul, Türkiye
                     </p>
                   </div>
