@@ -121,8 +121,8 @@ export default function IletisimPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900 mb-1">Telefon</h3>
-                    <a href="tel:+905XXXXXXXXX" className="text-gray-600 hover:text-primary-600 transition-colors">
-                      +90 5XX XXX XX XX
+                    <a href="tel:+905325172006" className="text-gray-600 hover:text-primary-600 transition-colors">
+                      0532 517 20 06
                     </a>
                     <p className="text-sm text-gray-500 mt-1">Pazartesi - Cuma: 09:00 - 18:00</p>
                   </div>

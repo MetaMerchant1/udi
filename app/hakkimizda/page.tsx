@@ -53,7 +53,7 @@ export default function HakkimizdaPage() {
         <div className="relative z-10 text-center max-w-3xl mx-auto">
           <div className="mb-6 sm:mb-8 flex justify-center">
             <Image
-              src="/images/udi-logo.svg"
+              src="/images/logo.jpg"
               alt="UDI - United Development and Innovation"
               width={200}
               height={200}

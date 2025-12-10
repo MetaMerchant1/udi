@@ -41,7 +41,7 @@ export default function Footer() {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <Image
-                  src="/images/udi-logo.svg"
+                  src="/images/logo.jpg"
                   alt="UDI"
                   width={60}
                   height={60}
@@ -64,9 +64,9 @@ export default function Footer() {
 
               {/* Contact Info */}
               <div className="space-y-3">
-                <a href="tel:+905XXXXXXXXX" className="flex items-center gap-2 hover:text-white transition-colors">
+                <a href="tel:+905325172006" className="flex items-center gap-2 hover:text-white transition-colors">
                   <Phone className="h-5 w-5 text-primary-400" />
-                  <span>+90 5XX XXX XX XX</span>
+                  <span>0532 517 20 06</span>
                 </a>
                 <a href="mailto:unitedevelopmentinnovation@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors">
                   <Mail className="h-5 w-5 text-primary-400" />
