@@ -5,22 +5,24 @@ const bcrypt = require('bcryptjs');
 const prisma = new PrismaClient();
 
 async function main() {
-  const password = await bcrypt.hash('admin123', 10);
+  const password = await bcrypt.hash('Desraaydin2025', 10);
 
   const user = await prisma.user.upsert({
-    where: { email: 'admin@udi.com' },
-    update: {},
-    create: {
-      email: 'admin@udi.com',
+    where: { email: 'udi@udidanismanlik.com' },
+    update: {
       password: password,
-      name: 'Admin',
+    },
+    create: {
+      email: 'udi@udidanismanlik.com',
+      password: password,
+      name: 'UDI Admin',
       role: 'ADMIN',
     },
   });
 
   console.log('Admin kullanıcısı oluşturuldu:');
-  console.log('Email: admin@udi.com');
-  console.log('Şifre: admin123');
+  console.log('Email: udi@udidanismanlik.com');
+  console.log('Şifre: Desraaydin2025');
 }
 
 main()
