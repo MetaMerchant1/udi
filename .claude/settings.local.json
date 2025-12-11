@@ -29,7 +29,8 @@
       "Bash(npm uninstall:*)",
       "Bash(set DATABASE_URL=file:./prisma/blog.db)",
       "Bash(DATABASE_URL=\"file:./prisma/blog.db\" node:*)",
-      "Bash(git config:*)"
+      "Bash(git config:*)",
+      "Bash(git reset:*)"
     ],
     "deny": [],
     "ask": []
