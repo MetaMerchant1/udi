@@ -1,8 +1,7 @@
+import { auth } from '@/lib/auth';
 import { NextResponse } from 'next/server';
-import { getToken } from 'next-auth/jwt';
-import type { NextRequest } from 'next/server';
 
-export async function middleware(req: NextRequest) {
+export default auth((req) => {
   const { pathname } = req.nextUrl;
 
   // Admin sayfaları için kontrol
@@ -13,13 +12,7 @@ export async function middleware(req: NextRequest) {
     return NextResponse.next();
   }
 
-  // JWT token kontrolü (edge-compatible)
-  const token = await getToken({
-    req,
-    secret: process.env.AUTH_SECRET,
-  });
-
-  const isLoggedIn = !!token;
+  const isLoggedIn = !!req.auth;
 
   // Login sayfası hariç tüm admin sayfaları korumalı
   if (!isLoginPage && !isLoggedIn) {
@@ -32,7 +25,7 @@ export async function middleware(req: NextRequest) {
   }
 
   return NextResponse.next();
-}
+});
 
 export const config = {
   matcher: ['/admin/:path*'],
