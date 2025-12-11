@@ -346,16 +346,6 @@ export default function IletisimPage() {
         </div>
       </Section>
 
-      {/* Map Section (Placeholder) */}
-      <Section className="bg-white" fullWidth>
-        <div className="w-full h-96 bg-gray-200 rounded-lg flex items-center justify-center">
-          <div className="text-center text-gray-500">
-            <MapPin className="h-16 w-16 mx-auto mb-4" />
-            <p>Harita konumu buraya gelecek</p>
-            <p className="text-sm">(Google Maps entegrasyonu)</p>
-          </div>
-        </div>
-      </Section>
     </div>
   );
 }
