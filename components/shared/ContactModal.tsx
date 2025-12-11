@@ -58,13 +58,12 @@ export default function ContactModal() {
     try {
       const formData = new FormData();
       formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-      formData.append('subject', `UDI İletişim Formu - ${data.name}`);
-      formData.append('from_name', 'UDI Danışmanlık Web Sitesi');
-      formData.append('Ad Soyad', data.name);
-      formData.append('E-posta', data.email);
-      formData.append('Telefon', data.phone);
-      formData.append('Mesaj', data.message);
-      formData.append('replyto', data.email);
+      formData.append('subject', `UDI Iletisim Formu - ${data.name}`);
+      formData.append('from_name', 'UDI Danismanlik Web Sitesi');
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('phone', data.phone);
+      formData.append('message', data.message);
 
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
