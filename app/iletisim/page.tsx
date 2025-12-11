@@ -2,12 +2,13 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import emailjs from '@emailjs/browser';
 import { Phone, Mail, MapPin, Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 import Section from '@/components/shared/Section';
 import Card from '@/components/shared/Card';
 import Button from '@/components/shared/Button';
 import { ContactFormData } from '@/lib/types';
+
+const WEB3FORMS_ACCESS_KEY = 'abceb852-5a5b-4cf0-8ffb-29b87129a7a5';
 
 export default function IletisimPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,38 +33,31 @@ export default function IletisimPage() {
     setSubmitError(false);
 
     try {
-      // EmailJS configuration from environment variables
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+      const formData = new FormData();
+      formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('phone', data.phone);
+      formData.append('message', data.message);
+      formData.append('subject', `Yeni İletişim Formu - ${data.name}`);
 
-      if (!serviceId || !templateId || !publicKey) {
-        console.error('EmailJS configuration is missing. Please check your .env.local file.');
-        throw new Error('EmailJS yapılandırması eksik.');
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSubmitSuccess(true);
+        reset();
+        setMessageLength(0);
+        setTimeout(() => setSubmitSuccess(false), 5000);
+      } else {
+        throw new Error(result.message || 'Form gönderilemedi');
       }
-
-      // Send email using EmailJS
-      const response = await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: data.name,
-          from_email: data.email,
-          phone: data.phone,
-          message: data.message,
-        },
-        publicKey
-      );
-
-      console.log('Email sent successfully:', response);
-      setSubmitSuccess(true);
-      reset();
-      setMessageLength(0);
-
-      // Auto-hide success message after 5 seconds
-      setTimeout(() => setSubmitSuccess(false), 5000);
     } catch (error) {
-      console.error('Email sending error:', error);
+      console.error('Form gönderme hatası:', error);
       setSubmitError(true);
       setTimeout(() => setSubmitError(false), 5000);
     } finally {
